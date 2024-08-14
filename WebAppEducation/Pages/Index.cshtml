@@ -3,48 +3,43 @@
 @{
     ViewData["Title"] = "Home page";
 }
+
 <div id="app" class="row">
     <div class="col">
         <div class="main-card mb-3 card">
+            <div class="card-header">
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-1-tab" data-bs-toggle="pill" data-bs-target="#pills-1" type="button" role="tab" aria-controls="pills-1" aria-selected="true">
+                            Задача 2
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">
+                            Задача 3
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">
+                            Задача 4
+                        </button>
+                    </li>
+                </ul>
+            </div>
             <div class="card-body">
-                <h5 class="card-title">Кейс-задача № 2</h5>
-                <h6 class="card-title">Впишите дату своего рождения:</h6>
-                <div class="row">
-                    <div class="col">
-                        <input type="number" class="form-control-sm form-control p-0" placeholder=" день"
-                               v-model="day">
-                        
+                
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-1" role="tabpanel" aria-labelledby="pills-1-tab">
+                        <partial name="Task_pages\_Task2.cshtml" />
                     </div>
-                    <div class="col">
-                        <input type="number" class="form-control-sm form-control p-0" placeholder=" месяц"
-                               v-model="month"
-                        @* v-on:change="" *@>
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        <partial name="Task_pages\_Task3.cshtml" />
                     </div>
-                    <div class="col">
-                        <input type="number" class="form-control-sm form-control p-0" placeholder=" год"
-                               v-model="year"
-                        @* v-on:change="" *@>
-                    </div>
+                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">3</div>
                 </div>
-                <h6>
-                    День недели: {{ getWeekDay() }}
-                </h6>
-                <h6>
-                    Этот год высокостный? - {{ isLeapYear() }}
-                </h6>
-                <h6>
-                    Вам {{ getOldUser() }} полных лет
-                </h6>
-                <button class="mb-2 mr-2 btn btn-info" v-on:click="showTablo()">
-                    Вывысти дату на табло
-                </button>
-                <template v-for="el in drow">
-                    <h6>
-                        {{ el }}
-                    </h6>
-                </template>
             </div>
         </div>
+        
     </div>
 </div>
 
