@@ -1,0 +1,50 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<div id="app" class="row">
+    <div class="col">
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <h5 class="card-title">Кейс-задача № 2</h5>
+                <h6 class="card-title">Впишите дату своего рождения:</h6>
+                <div class="row">
+                    <div class="col">
+                        <input type="number" class="form-control-sm form-control p-0" placeholder=" день"
+                               v-model="day">
+                        
+                    </div>
+                    <div class="col">
+                        <input type="number" class="form-control-sm form-control p-0" placeholder=" месяц"
+                               v-model="month"
+                        @* v-on:change="" *@>
+                    </div>
+                    <div class="col">
+                        <input type="number" class="form-control-sm form-control p-0" placeholder=" год"
+                               v-model="year"
+                        @* v-on:change="" *@>
+                    </div>
+                </div>
+                <h6>
+                    День недели: {{ getWeekDay() }}
+                </h6>
+                <h6>
+                    Этот год высокостный? - {{ isLeapYear() }}
+                </h6>
+                <h6>
+                    Вам {{ getOldUser() }} полных лет
+                </h6>
+                <button class="mb-2 mr-2 btn btn-info" v-on:click="showTablo()">
+                    Вывысти дату на табло
+                </button>
+                <template v-for="el in drow">
+                    <h6>
+                        {{ el }}
+                    </h6>
+                </template>
+            </div>
+        </div>
+    </div>
+</div>
+
